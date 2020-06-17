@@ -12,6 +12,7 @@
 // 示例 1: 
 //
 // 输入: nums = [4,5,6,7,0,1,2], target = 0
+        nums = [6,7,0,1,2,4,5], target = 5
 //输出: 4
 // 
 //
@@ -25,8 +26,15 @@
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+    /**
+     * 方法一：
+     * @param nums
+     * @param target
+     * @return
+     */
     public int search(int[] nums, int target) {
-
+        int mid=nums.length/2;
+        int ans=-1;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

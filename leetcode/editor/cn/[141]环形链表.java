@@ -42,6 +42,9 @@
 */
 
 //leetcode submit region begin(Prohibit modification and deletion)
+
+import java.util.HashSet;
+import java.util.Set;
 /**
  * Definition for singly-linked list.
  * class ListNode {
@@ -56,28 +59,36 @@
 public class Solution {
     public boolean hasCycle(ListNode head) {
         /**
-         * 方法一：  快慢指针  如果存在环   则两个指针一定会相遇   否则   则不存在环
-         */
+         * 方法一：  快慢指针  如果存在环   则两个指针一定会相遇   否则   则不存在环   O（1）常量
+
         if (head == null || head.next == null) {
             return false;
         }
-        ListNode foot=head.next.next;
-        head=head.next;
-        while (head.next != null && foot.next!= null) {
-            head=head.next;
-            foot=foot.next.next;
-            if (head.val == foot.val) {
+        ListNode slow=head;
+        ListNode fast=head;
+        while (fast.next != null && fast.next.next != null) {
+            slow=slow.next;
+            fast=fast.next.next;
+            if (fast.equals(slow) ) {
                 return true;
             }
         }
         return false;
-        while(next != null && next.next != null){
-            if(head.val == next.val)
+         */
+        /**
+         * 方法二：使用一个HashSet来判断该节点是否已经存入表中  若存入，代表有换   直至链表为空
+
+        Set<ListNode> set=new HashSet<ListNode>();
+        while (head != null) {
+            if (set.contains(head)) {
                 return true;
-            next = next.next.next;
-            head = head.next;
+            }
+            set.add(head);
+            head=head.next;
         }
         return false;
+         */
+
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

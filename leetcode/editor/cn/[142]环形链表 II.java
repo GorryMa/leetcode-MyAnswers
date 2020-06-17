@@ -83,15 +83,15 @@ public class Solution {
          * 即s=nl-x；  该式意味着慢指针在循环链表在从相遇点开始经过nl-x的长度会回到节点处
          * 则我们重新指定一个指针从头开始移动  两者恰好在节点处相遇
          */
+        if (head == null || head.next == null) {
+            return null;
+        }
         ListNode slow=head;
         ListNode fast=head;
-        while (true) {
-            if (fast == null || fast.next == null) {
-                return null;
-            }
+        while (fast.next != null && fast.next.next != null) {
             slow=slow.next;
             fast=fast.next.next;
-            if (fast == slow) {
+            if (slow==fast){
                 break;
             }
         }

@@ -32,7 +32,7 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     /**
-     * 方法一：因为每次只能选取一堆   所以总的最小次数即为堆的最小次数和  没堆最多可以拿2个最少拿1个  所以每堆的最小次数即为（coins[i]+1）/2；
+     * 方法一：因为每次只能选取一堆   所以总的最小次数即为堆的最小次数和  每堆最多可以拿2个最少拿1个  所以每堆的最小次数即为（coins[i]+1）/2；
      * @param coins
      * @return
      */
